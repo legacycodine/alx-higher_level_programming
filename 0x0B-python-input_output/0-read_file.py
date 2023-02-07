@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-def read_file(filename=""):
+def read_lines(filename="", nb_lines=0):
     with open(filename, encoding="utf-8") as fd:
-        for line in fd:
-            print(line, end="")
+        if (nb_lines == 0):
+            print(fd.read(), end="")
+        else:
+            for line in fd:
+                if (nb_lines > 0):
+                    print(line, end="")
+                    nb_lines -= 1
