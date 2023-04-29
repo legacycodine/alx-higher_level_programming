@@ -1,22 +1,25 @@
-#!/usr/bin/python3
-"""
-Fetches the status of https://intranet.hbtn.io/status.
-"""
+#!/usr/bin/env python3
 
 import urllib.request
 
-# URL to fetch
-url = 'https://intranet.hbtn.io/status'
+
+def fetch_url(url):
+    with urllib.request.urlopen(url) as response:
+        content = response.read().decode('utf-8')
+        return content
+
+
+def main():
+    url = 'https://intranet.hbtn.io/status'
+
+    content = fetch_url(url)
+
+    print("Body response:")
+    print(f"\t- type: {type(content)}")
+    print(f"\t- content: {content}")
+    print(f"\t- utf8 content: {content}")
+
 
 if __name__ == '__main__':
-    # Send a request to the URL and read the response
-    with urllib.request.urlopen(url) as response:
-        content = response.read()
-        utf8_content = content.decode('utf-8')
-
-        # Print the response information
-        print("Body response:")
-        print(f"\t- type: {type(content)}")
-        print(f"\t- content: {content}")
-        print(f"\t- utf8 content: {utf8_content}")
+    main()
 
