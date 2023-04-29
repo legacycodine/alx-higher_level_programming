@@ -17,7 +17,7 @@ def print_response_info(content):
 
 
 def main():
-    url = 'https://intranet.hbtn.io/status'
+    url = 'https://alx-intranet.hbtn.io/status'
     content = fetch_url(url)
     print_response_info(content)
 
