@@ -9,15 +9,17 @@ def fetch_url(url):
         return content
 
 
-def main():
-    url = 'https://intranet.hbtn.io/status'
-
-    content = fetch_url(url)
-
+def print_response_info(content):
     print("Body response:")
     print(f"\t- type: {type(content)}")
     print(f"\t- content: {content}")
     print(f"\t- utf8 content: {content}")
+
+
+def main():
+    url = 'https://intranet.hbtn.io/status'
+    content = fetch_url(url)
+    print_response_info(content)
 
 
 if __name__ == '__main__':
